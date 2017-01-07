@@ -26,8 +26,10 @@ linkedin_username: jonasteuwen
 # Build settings
 markdown: redcarpet
 theme: minima
-disqus:
-  shortname: jonasteuwen-github-io.disqus.com
+comments:
+  provider: "disqus"
+  disqus:
+    shortname: "jonasteuwen-github-io.disqus.com"
 gems:
   - jekyll-feed
 exclude:
