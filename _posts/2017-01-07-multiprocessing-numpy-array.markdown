@@ -5,14 +5,14 @@ date:   2017-01-07
 categories: numpy multiprocessing
 comments: true
 ---
-In one of my projects I had to fill a large array value by value, where each computation lasted up to 30 seconds. Since I had 32 cores at my disposal, I started considering if I could use the multiprocessing module of Python. This module provides a way to side step the global interpreter lock by using subprocesses, for more details see [the python multiprocessing module][python-multi]. However, the array is local to the subprocess, so we need to do something slightly smarted. Luckily the multiprocessing module, and the numpy module provide an interface to C compatible data types which can be inherited by child processes.
+In one of my projects I had to fill a large array value by value, where each computation lasted up to 30 seconds. Since I had 32 cores at my disposal, I started considering if I could use the multiprocessing module of Python. This module provides a way to side step the global interpreter lock by using subprocesses, for more details see [the python multiprocessing module][python-multi]. However, the array is local to the subprocess, so we need to do something slightly smarter. Luckily the multiprocessing module and numpy provide an interface to C compatible data types which can be inherited by the child processes.
 
 You can do this in two steps:
 
 1. Write a piece of code that fills the array window by window.
 2. Apply a ```python Pool()``` to the function.
 
-The first part is rather straightforward. This code fills a matrix window by window to match a random matrix. To use it for your own project extrapolate from there.
+The first part is rather straightforward. This code fills a matrix window by window to equal a random matrix. To use it for your own projects extrapolate from there.
 
 ```python
 import numpy as np
@@ -38,7 +38,7 @@ for idx in window_idxs:
 
 print(np.array_equal(X, tmp))
 ```
-Next we apply sharedctypes and the multiprocessing module. See the [python docs][python-ctypes] and the [scipy docs][scipy-ctypes] for further details.
+This is hardly useful if we cannot do this using the multiprocessing module. But we can, by applying sharedctypes. Check the [python docs][python-ctypes] and the [scipy docs][scipy-ctypes] for further details.
 
 ```python
 import numpy as np
