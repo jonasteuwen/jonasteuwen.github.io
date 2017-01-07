@@ -24,7 +24,7 @@ github_username:  jonasteuwen
 linkedin_username: jonasteuwen
 
 # Build settings
-markdown: redcarpet
+markdown: kramdown
 theme: minima
 comments:
   provider: "disqus"
@@ -35,10 +35,3 @@ gems:
 exclude:
   - Gemfile
   - Gemfile.lock
-defaults:
-  # _posts
-  - scope:
-      path: ""
-      type: posts
-    values:
-      comments: true
