@@ -26,10 +26,9 @@ linkedin_username: jonasteuwen
 # Build settings
 markdown: kramdown
 theme: minima
-comments:
-  provider: "disqus"
-  disqus:
-    shortname: "jonasteuwen-github-io.disqus.com"
+disqus:
+    shortname: jonasteuwen-github-io.disqus.com
+repository: jonasteuwen/jonasteuwen.github.io
 gems:
   - jekyll-feed
 exclude:
