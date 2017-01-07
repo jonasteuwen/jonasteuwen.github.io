@@ -33,3 +33,10 @@ gems:
 exclude:
   - Gemfile
   - Gemfile.lock
+defaults:
+  # _posts
+  - scope:
+      path: ""
+      type: posts
+    values:
+      comments: true
