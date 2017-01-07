@@ -3,6 +3,7 @@ layout: post
 title:  "Fill a numpy array using the multiprocessing module"
 date:   2017-01-07
 categories: numpy multiprocessing
+comments: true
 ---
 In one of my projects I had to fill a large array value by value, where each computation lasted up to 30 seconds. Since I had 32 cores at my disposal, I started considering if I could use the multiprocessing module of Python. This module provides a way to side step the global interpreter lock by using subprocesses, for more details see [the python multiprocessing module][python-multi]. However, the array is local to the subprocess, so we need to do something slightly smarted. Luckily the multiprocessing module, and the numpy module provide an interface to C compatible data types which can be inherited by child processes.
 
@@ -72,7 +73,7 @@ result = np.ctypeslib.as_array(shared_array)
 
 print(np.array_equal(X, result))
 ```
-This work in Linux, if you want it to work in Windows, you need to initialize your pool as seen on [Reddit][reddit].
+This works in Linux, if you want it to work in Windows, you need to initialize your pool as explained on [Reddit][reddit].
 
 [python-multi]: https://docs.python.org/2/library/multiprocessing.html
 [reddit]: https://www.reddit.com/r/Python/comments/j3qjb/parformatlabpool_replacement/
