@@ -80,8 +80,9 @@ The python interpreter has a [Global Interpreter Lock (GIL)][python-gil] which p
 
 To be able to use the multiprocessing module on our code, we need to find a way to execute our code in parallel. In the example we fill a square array where each of the values can be computed independently of eachother. If there is some form of independence, you obviously need to extrapolate from here or try something smarter. The approach taken here is to split the larger array into smaller squares and run a process on each square. Because we want to side step the GIL we need to share the memory of the array somehow. Here is where the [sharedctypes][python-ctypes] comes in. This allows us to access the array as if it were a C array. Of course, as C is not dynamically typed as python is, we need to properly declare the type of the array. Numpy provides a convenient function to read in the C array as a numpy array. 
 
-*Note:* You might get a lot of [PEP 3118][PEP-3118] buffer RunTime warnings which is because ctypes uses the [wrong](http://bugs.python.org/issue10744) buffer interface information. These can be safely ignored. If you wish to suppress these warnings, you can use the [warnings module][python-warnings] to suppress the warning using the ```catch_warnings``` method.
-*Be aware:* The example code runs on Linux, but if you want to run it on Windows you will need to initialize your pool as explained on [Reddit][reddit].
+**Note:** You might get a lot of [PEP 3118][PEP-3118] buffer RunTime warnings which is because ctypes uses the [wrong](http://bugs.python.org/issue10744) buffer interface information. These can be safely ignored. If you wish to suppress these warnings, you can use the [warnings module][python-warnings] to suppress the warning using the ```catch_warnings``` method.
+
+**Be aware:** The example code runs on Linux, but if you want to run it on Windows you will need to initialize your pool as explained on [Reddit][reddit].
 
 
 [python-warnings]: https://docs.python.org/2/library/warnings.html
