@@ -23,11 +23,13 @@ twitter_username: jonasteuwen
 github_username:  jonasteuwen
 linkedin_username: jonasteuwen
 
+disqus:
+  shortname: jonasteuwen-github-io.disqus.com
+google_analytics: UA-89934177-1
+
 # Build settings
 markdown: kramdown
 theme: minima
-disqus:
-    shortname: jonasteuwen-github-io.disqus.com
 repository: jonasteuwen/jonasteuwen.github.io
 gems:
   - jekyll-feed
