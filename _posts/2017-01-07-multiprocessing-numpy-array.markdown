@@ -2,7 +2,7 @@
 layout: post
 title:  "Fill a numpy array using the multiprocessing module"
 date:   2017-01-07
-categories: numpy multiprocessing
+categories: numpy python multiprocessing
 comments: true
 ---
 In one of my projects I had to fill a large array value by value, where each computation lasted up to 30 seconds. Since I had 32 cores at my disposal, I started considering if I could use the multiprocessing module of Python. This module provides a way to side step the global interpreter lock by using subprocesses, for more details see [the python multiprocessing module][python-multi]. However, the array is local to the subprocess, so we need to do something slightly smarter. Luckily the multiprocessing module and numpy provide an interface to C compatible data types which can be inherited by the child processes.
