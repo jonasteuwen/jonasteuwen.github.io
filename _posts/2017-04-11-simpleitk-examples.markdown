@@ -1,9 +1,9 @@
 ---
 layout: post
 title:  "A few examples on how to read medical images in SimpleITK with Python"
-date:   2017-01-07
+date:   2017-04-11
 categories: itk python
-comments: true
+comments: false
 ---
 I came across a couple of posts on Kaggle where people read in medical images. In my opinion, the easiest way to do this is to use [SimpleITK][simpleitk]. SimpleITK is a convenient procedural wrapper around [Insight Segmentation and Registration Toolkit (ITK)][itk]. ITK is an open-source image analysis toolbox for images in 2, 3 or more dimensions. SimpleITk allows you to enjoy many of the advanced functionalities from ITK in python, such as resampling images, filtering and much more.
 
